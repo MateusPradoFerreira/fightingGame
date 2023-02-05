@@ -57,12 +57,10 @@ const playerTwo = new Fighter({
 
 function selectPlayerOneFighter(ff) {
     playerOneFighter = ff;
-    switchFighter(playerOne, playerOneFighter.right)
 }
 
 function selectPlayerTwoFighter(ff) {
     playerTowFighter = ff;
-    switchFighter(playerTwo, playerTowFighter.left)
 }
 
 function animate() {
