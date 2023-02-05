@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="fighterName">
+        <div id="fighterOneName" class="fighterIndName"></div>
+        <div id="fighterTwoName" class="fighterIndName"></div>
+      </div>
+
+      <div class="header">
+        <div class="life">
+          <div id="playerOneHealth" class="playerOneHealth"></div>
+        </div>
+        <div id="timer" class="timer">30</div>
+        <div class="life2">
+          <div id="playerTwoHealth" class="playerTwoHealth"></div>
+        </div>
+      </div>
+
+      <div id="winnerAnnouncer" class="winnerAnnouncer">tie</div>
+      <canvas></canvas>
+    </div>
+    <div class="fighterSelect">
+      <div class="fighterSelectOne">
+        <h1>P1</h1>
+        <button onclick="selectPlayerOneFighter(fighters.MedievalWarrior)">
+          Ethan
+        </button>
+        <button onclick="selectPlayerOneFighter(fighters.FantasyWarrior)">
+          Geralt
+        </button>
+        <button onclick="selectPlayerOneFighter(fighters.MedievalKing)">
+          Cyprian
+        </button>
+        <button onclick="selectPlayerOneFighter(fighters.Huntress)">
+          Brielle
+        </button>
+      </div>
+      <div class="fighterSelectTwo">
+        <h1>P2</h1>
+        <button onclick="selectPlayerTwoFighter(fighters.MedievalWarrior)">
+          Ethan
+        </button>
+        <button onclick="selectPlayerTwoFighter(fighters.FantasyWarrior)">
+          Geralt
+        </button>
+        <button onclick="selectPlayerTwoFighter(fighters.MedievalKing)">
+          Cyprian
+        </button>
+        <button onclick="selectPlayerTwoFighter(fighters.Huntress)">
+          Brielle
+        </button>
+      </div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+    letter-spacing: 1px;
+}
+
+.container {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    borde
+}
+
+.header {
+    position: absolute;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    width: 1024px;
+    padding: 30px; 
+    padding-top: 40px; 
+}
+
+.life {
+    width: 100%; 
+    height: 30px;
+    display: flex;
+    background-color: #715D8A;
+    border: solid 4px #212121; 
+    border-right: none; 
+    border-radius: 10px 0px 0px 10px; 
+    overflow: hidden;
+}
+
+.life2 {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: right;
+    background-color: #715D8A;
+    border-radius: 0px 10px 10px 0px;
+    overflow: hidden;
+    border: solid 4px #212121;
+    border-left: none;
+}
+
+.playerOneHealth {
+    width: 100%;
+    height: 100%;
+    background-color: #ff9800;
+    transition: all 1s;
+    box-shadow: inset 3px 3px 5px 0px rgb(197, 88, 69);
+    border-radius: 10px;
+}
+
+.playerTwoHealth {
+    width: 100%;
+    height: 100%;
+    background-color: #ff9800;
+    transition: all 1s;
+    box-shadow: inset -3px 3px 5px 0px rgb(197, 88, 69);
+    border-radius: 10px;
+}
+
+.timer {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    transform: scale(1.5);
+    background-image: url(./assets/shield.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #212121;
+}
+
+.winnerAnnouncer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    width: 1024px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #251612;
+}
+
+.fighterSelect {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1324px;
+    padding: 30px;
+    height: 576px;
+}
+
+.fighterSelectOne {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button {
+    background-color: #251612;
+    padding: 5px 15px;
+    border-radius: 10px;
+    color: #e1e8f5;
+    border: solid 2px #e1e8f5;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    color: #e1e8f5;
+}
+
+.fighterSelectTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fighterName {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 1024px;
+    padding: 40px;
+    padding-top: 27px;
+}
+
+.fighterIndName {
+    padding: 5px 20px;
+    border-radius: 5px 5px 0px 0px;
+    color: #e1e8f5;
+    border-bottom: none;
+    font-weight: 600;
+}
