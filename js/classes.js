@@ -47,7 +47,7 @@ class Sprite {
 };
 
 class Fighter extends Sprite {
-    constructor({ position, velocity, moviment, imageSrc, scale = 1, framesMax = 1, offset = { x: 0, y: 0 }, sprites, left, fantasyName, timeAtk }) {
+    constructor({ position, velocity, moviment, imageSrc, scale = 1, framesMax = 1, offset = { x: 0, y: 0 }, sprites, left, fantasyName, timeAtk, name }) {
         super({
             position,
             imageSrc,
@@ -76,11 +76,18 @@ class Fighter extends Sprite {
         this.fantasyName = fantasyName;
         this.timeAtk = timeAtk;
         this.dead = false;
+        this.selected = false;
+        this.name = name;
+        this.special = 25;
 
         for (const sprite in this.sprites) {
             sprites[sprite].image = new Image();
             sprites[sprite].image.src = sprites[sprite].imageSrc
         }
+    }
+
+    select() {
+        this.selected = true;
     }
 
     update() {
@@ -121,8 +128,8 @@ class Fighter extends Sprite {
         }, 1000)
     }
 
-    takeHit() {
-        this.health -= 10
+    takeHit(dm) {
+        this.health -= dm
 
         if (this.health <= 0) {
             this.switchSprite('death');
@@ -137,7 +144,6 @@ class Fighter extends Sprite {
                 this.dead = true
             return
         };
-
 
         if (this.image === this.sprites.attack1.image && this.framesCurrent < this.sprites.attack1.framesMax - 1) return;
         if (this.image === this.sprites.takeHit.image && this.framesCurrent < this.sprites.takeHit.framesMax - 1) return;

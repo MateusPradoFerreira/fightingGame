@@ -7,7 +7,7 @@
     <title>Game</title>
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=VT323&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=VT323&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -22,9 +22,18 @@
         <div class="life">
           <div id="playerOneHealth" class="playerOneHealth"></div>
         </div>
-        <div id="timer" class="timer">30</div>
+        <div id="timer" class="timer">60</div>
         <div class="life2">
           <div id="playerTwoHealth" class="playerTwoHealth"></div>
+        </div>
+      </div>
+
+      <div class="header2">
+        <div class="special1">
+          <div id="playerOneSpecial" class="playerOneSpecial"></div>
+        </div>
+        <div class="special2">
+          <div id="playerTwoSpecial" class="playerTwoSpecial"></div>
         </div>
       </div>
 
@@ -32,34 +41,74 @@
       <canvas></canvas>
     </div>
     <div class="fighterSelect">
-      <div class="fighterSelectOne">
+      <div id="fighterSelectOne" class="fighterSelectOne">
         <h1>P1</h1>
-        <button onclick="selectPlayerOneFighter(fighters.MedievalWarrior)">
+        <button
+          id="MedievalWarrior1"
+          class="button-left"
+          onclick="selectPlayerOneFighter(fighters.MedievalWarrior)"
+        >
           Ethan
         </button>
-        <button onclick="selectPlayerOneFighter(fighters.FantasyWarrior)">
-          Geralt
-        </button>
-        <button onclick="selectPlayerOneFighter(fighters.MedievalKing)">
+        <button
+          id="MedievalKing1"
+          class="button-left"
+          onclick="selectPlayerOneFighter(fighters.MedievalKing)"
+        >
           Cyprian
         </button>
-        <button onclick="selectPlayerOneFighter(fighters.Huntress)">
+        <button
+          id="Huntress1"
+          class="button-left"
+          onclick="selectPlayerOneFighter(fighters.Huntress)"
+        >
           Brielle
+        </button>
+        <button
+          id="FantasyWarrior1"
+          class="button-left"
+          onclick="selectPlayerOneFighter(fighters.FantasyWarrior)"
+        >
+          Geralt
+        </button>
+        <br />
+        <button class="confirm-one" onclick="confirmPlayer(playerOne)">
+          CONFIRM
         </button>
       </div>
-      <div class="fighterSelectTwo">
+      <div id="fighterSelectTwo" class="fighterSelectTwo">
         <h1>P2</h1>
-        <button onclick="selectPlayerTwoFighter(fighters.MedievalWarrior)">
+        <button
+          id="MedievalWarrior2"
+          class="button-right"
+          onclick="selectPlayerTwoFighter(fighters.MedievalWarrior)"
+        >
           Ethan
         </button>
-        <button onclick="selectPlayerTwoFighter(fighters.FantasyWarrior)">
-          Geralt
-        </button>
-        <button onclick="selectPlayerTwoFighter(fighters.MedievalKing)">
+        <button
+          id="MedievalKing2"
+          class="button-right"
+          onclick="selectPlayerTwoFighter(fighters.MedievalKing)"
+        >
           Cyprian
         </button>
-        <button onclick="selectPlayerTwoFighter(fighters.Huntress)">
+        <button
+          id="Huntress2"
+          class="button-right"
+          onclick="selectPlayerTwoFighter(fighters.Huntress)"
+        >
           Brielle
+        </button>
+        <button
+          id="FantasyWarrior2"
+          class="button-right"
+          onclick="selectPlayerTwoFighter(fighters.FantasyWarrior)"
+        >
+          Geralt
+        </button>
+        <br />
+        <button class="confirm-two" onclick="confirmPlayer(playerTwo)">
+          CONFIRM
         </button>
       </div>
     </div>

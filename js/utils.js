@@ -8,6 +8,7 @@ function createFighter({ name, offsetRight, offsetLeft, idleFrames, runFrames, j
             left: false,
             fantasyName: fantasyName,
             timeAtk: timeAtk,
+            name: name,
             sprites: {
                 idle: {
                     imageSrc: './assets/' + name + '/Sprites/Idle.png',
@@ -47,6 +48,7 @@ function createFighter({ name, offsetRight, offsetLeft, idleFrames, runFrames, j
             left: true,
             fantasyName: fantasyName,
             timeAtk: timeAtk,
+            name: name,
             sprites: {
                 idle: {
                     imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Idle.png',
@@ -102,6 +104,7 @@ var fighters = {
                 y: 70,
             }
         },
+        attackN: 1,
         idleFrames: 10,
         runFrames: 8,
         jumpFrames: 3,
@@ -131,6 +134,7 @@ var fighters = {
                 y: 70,
             }
         },
+        attackN: 1,
         idleFrames: 8,
         runFrames: 8,
         jumpFrames: 2,
@@ -241,9 +245,11 @@ function determineWinner({ playerOne, playerTwo, timerID }) {
     } else if (playerTwo.health >= playerOne.health) {
         document.querySelector('#winnerAnnouncer').innerHTML = 'Player Two Wins'
         document.querySelector('#winnerAnnouncer').style.display = 'flex'
+        playerOne.switchSprite('death');
     } else if (playerTwo.health <= playerOne.health) {
         document.querySelector('#winnerAnnouncer').innerHTML = 'Player One Wins'
         document.querySelector('#winnerAnnouncer').style.display = 'flex'
+        playerTwo.switchSprite('death');
     }
 }
 
@@ -262,21 +268,7 @@ function switchFighter(currentFighter, newFighter) {
     currentFighter.scale = newFighter.scale;
     currentFighter.left = newFighter.left;
     currentFighter.fantasyName = newFighter.fantasyName;
-    currentFightertimeAtk = newFighter.timeAtk;
+    currentFighter.timeAtk = newFighter.timeAtk;
+    currentFighter.name = newFighter.name;
 }
 
-let timer = 60
-let timerId
-function decreaseTimer() {
-    if (timer > 0) {
-        timerId = setTimeout(decreaseTimer, 1000)
-        timer--
-        document.querySelector('#timer').innerHTML = timer
-    }
-
-    if (timer === 0) {
-        determineWinner({ playerOne, playerTwo, timerId })
-    }
-}
-
-decreaseTimer()
