@@ -47,7 +47,7 @@ class Sprite {
 };
 
 class Fighter extends Sprite {
-    constructor({ position, velocity, moviment, imageSrc, scale = 1, framesMax = 1, offset = { x: 0, y: 0 }, sprites, left, fantasyName, timeAtk, name }) {
+    constructor({ position, velocity, moviment, imageSrc, scale = 1, framesMax = 1, offset = { x: 0, y: 0 }, sprites, left, fantasyName, timeAtk, name, spriteSet }) {
         super({
             position,
             imageSrc,
@@ -79,6 +79,7 @@ class Fighter extends Sprite {
         this.selected = false;
         this.name = name;
         this.special = 25;
+        this.spriteSet = spriteSet;
 
         for (const sprite in this.sprites) {
             sprites[sprite].image = new Image();
@@ -102,7 +103,6 @@ class Fighter extends Sprite {
 
         /* c.fillStyle = 'red';
         c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) */
-
 
         this.draw();
         if (!this.dead) this.animateFrame();

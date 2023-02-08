@@ -28,7 +28,7 @@ const background = new Sprite({
 })
 
 var playerOneFighter = fighters.MedievalWarrior;
-var playerTowFighter = fighters.MedievalKing;
+var playerTowFighter = fighters.MedievalWarrior;
 
 const playerOne = new Fighter({
     position: {
@@ -43,7 +43,7 @@ const playerOne = new Fighter({
         x: 7,
         y: -15,
     },
-    ...playerOneFighter.right
+    ...playerOneFighter.left
 });
 
 const playerTwo = new Fighter({
@@ -59,17 +59,20 @@ const playerTwo = new Fighter({
         x: 7,
         y: -15,
     },
-    ...playerTowFighter.left
+    ...playerTowFighter.right
 });
+
+selectPlayerOneFighter(fighters.MedievalWarrior)
+selectPlayerTwoFighter(fighters.MedievalWarrior)
 
 function selectPlayerOneFighter(ff) {
     playerOneFighter = ff;
-    switchFighter(playerOne, playerOne.left ? playerOneFighter.left : playerOneFighter.right)
+    switchFighter(playerOne, playerOneFighter.right)
 }
 
 function selectPlayerTwoFighter(ff) {
     playerTowFighter = ff;
-    switchFighter(playerTwo, playerTwo.left ? playerTowFighter.left : playerTowFighter.right)
+    switchFighter(playerTwo, playerTowFighter.left)
 }
 
 function confirmPlayer(player) {

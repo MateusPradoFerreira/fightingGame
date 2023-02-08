@@ -9,6 +9,36 @@ function createFighter({ name, offsetRight, offsetLeft, idleFrames, runFrames, j
             fantasyName: fantasyName,
             timeAtk: timeAtk,
             name: name,
+            spriteSet: {
+                idle: {
+                    imageSrc: './assets/' + name + '/Sprites/Idle.png',
+                    framesMax: idleFrames,
+                },
+                run: {
+                    imageSrc: './assets/' + name + '/Sprites/Run.png',
+                    framesMax: runFrames,
+                },
+                jump: {
+                    imageSrc: './assets/' + name + '/Sprites/Jump.png',
+                    framesMax: jumpFrames,
+                },
+                fall: {
+                    imageSrc: './assets/' + name + '/Sprites/Fall.png',
+                    framesMax: fallFrames,
+                },
+                attack1: {
+                    imageSrc: './assets/' + name + '/Sprites/Attack' + attackN + '.png',
+                    framesMax: attack1Frames,
+                },
+                takeHit: {
+                    imageSrc: './assets/' + name + '/Sprites/Take Hit.png',
+                    framesMax: takeHitFrames,
+                },
+                death: {
+                    imageSrc: './assets/' + name + '/Sprites/Death.png',
+                    framesMax: deathFrames,
+                },
+            },
             sprites: {
                 idle: {
                     imageSrc: './assets/' + name + '/Sprites/Idle.png',
@@ -49,6 +79,36 @@ function createFighter({ name, offsetRight, offsetLeft, idleFrames, runFrames, j
             fantasyName: fantasyName,
             timeAtk: timeAtk,
             name: name,
+            spriteSet: {
+                idle: {
+                    imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Idle.png',
+                    framesMax: idleFrames,
+                },
+                run: {
+                    imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Run.png',
+                    framesMax: runFrames,
+                },
+                jump: {
+                    imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Jump.png',
+                    framesMax: jumpFrames,
+                },
+                fall: {
+                    imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Fall.png',
+                    framesMax: fallFrames,
+                },
+                attack1: {
+                    imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Attack' + attackN + '.png',
+                    framesMax: attack1Frames,
+                },
+                takeHit: {
+                    imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Take Hit.png',
+                    framesMax: takeHitFrames,
+                },
+                death: {
+                    imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Death.png',
+                    framesMax: deathFrames,
+                },
+            },
             sprites: {
                 idle: {
                     imageSrc: './assets/' + name + 'ToTheLeft/Sprites/Idle.png',
@@ -254,21 +314,24 @@ function determineWinner({ playerOne, playerTwo, timerID }) {
 }
 
 function switchFighter(currentFighter, newFighter) {
-    var newSprites = { ...currentFighter.sprites };
-    for (const sprite in newFighter.sprites) {
-        if (currentFighter.sprites[sprite].image.src !== 'http://127.0.0.1:5500' + newFighter.sprites[sprite].imageSrc.substring(1)) {
-            newSprites[sprite].image = new Image();
-            newSprites[sprite].image.src = newFighter.sprites[sprite].imageSrc;
-            newSprites[sprite].framesMax = newFighter.sprites[sprite].framesMax;
+    if (currentFighter.spriteSet !== newFighter.spriteSet) {
+        var newSprites = { ...currentFighter.sprites };
+        for (const sprite in newFighter.sprites) {
+            if (currentFighter.sprites[sprite].image.src !== 'http://127.0.0.1:5500' + newFighter.sprites[sprite].imageSrc.substring(1)) {
+                newSprites[sprite].image = new Image();
+                newSprites[sprite].image.src = newFighter.sprites[sprite].imageSrc;
+                newSprites[sprite].framesMax = newFighter.sprites[sprite].framesMax;
+            }
         }
+        currentFighter.sprites = newSprites
+        currentFighter.offset = newFighter.offset;
+        currentFighter.scale = newFighter.scale;
+        currentFighter.left = newFighter.left;
+        currentFighter.fantasyName = newFighter.fantasyName;
+        currentFighter.timeAtk = newFighter.timeAtk;
+        currentFighter.name = newFighter.name;
+        currentFighter.spriteSet = newFighter.spriteSet;
+        currentFighter.framesCurrent = 0;
     }
-
-    currentFighter.sprites = newSprites;
-    currentFighter.offset = newFighter.offset;
-    currentFighter.scale = newFighter.scale;
-    currentFighter.left = newFighter.left;
-    currentFighter.fantasyName = newFighter.fantasyName;
-    currentFighter.timeAtk = newFighter.timeAtk;
-    currentFighter.name = newFighter.name;
 }
 
